@@ -17,6 +17,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using BookstoreAPI.Mappings;
 
 namespace BookstoreAPI
 {
@@ -43,6 +44,8 @@ namespace BookstoreAPI
                 o.AddPolicy("CorsPolicy", 
                     builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
+
+            services.AddAutoMapper(typeof(Maps));
 
             services.AddSwaggerGen(c =>
             {
